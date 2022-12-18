@@ -1,0 +1,77 @@
+.container {
+    display: flex;
+    height: 230px;
+    gap: 5px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.timer {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    height: 100px;
+    font-size: 100px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.command {
+    display: flex;
+    height: 90px;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.command button {
+    display: flex;
+    border-radius: 5px;
+    color: #fff;
+    width: 100px;
+    height: 30px;
+    border: none;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.btnStop {
+    background-color: #d00000;
+}
+
+.btnStop:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.btnStop:active {
+    opacity: 0.8;
+}
+
+.btnPlay {
+    background-color: #40916c;
+}
+
+.btnPlay:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.btnPlay:active {
+    opacity: 0.8;
+}
+
+.btnRestart {
+    background-color: #ffc300;
+}
+
+.btnRestart:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.btnRestart:active {
+    opacity: 0.8;
+}
