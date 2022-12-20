@@ -17,7 +17,7 @@ function ErrorMessage(props: ErrorMessageProps) {
             setIsVisible(true)
             setTimeout(() => {
                 setIsVisible(false)
-            }, 3000);
+            }, 6000);
         } else {
             setIsVisible(false)
         }

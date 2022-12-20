@@ -1,53 +1,96 @@
 import React, { useEffect, useState } from 'react'
 import style from "../../styles/Timer.module.css"
 
-function Timer() {
-    const [timer, setTimer] = useState<string>("25:00")
-    const [play, setPlay] = useState<boolean>(false)
+enum Time {
+    Default = "25:00",
+    LongTime = "35:00",
+    SmallTime = "15:00"
+}
 
-    const formatNumber = (time: number): string => {
-        let formated: string = time > 9 ? time.toString() : "0" + time.toString();
-        return formated
-    }
+function Timer() {
+    const [time, setTime] = useState<string>("");
+    const [config, setConfig] = useState<Time>(Time.Default);
+    const [isPlay, setIsPlay] = useState<boolean>(false);
 
     useEffect(() => {
-        if (play === true) {
-            let time = timer.split(":")
-            let minutes = Number(time[0])
-            let seconds = Number(time[1])
-            console.log(seconds);
-            if (minutes !== 0) {
-                if (seconds > 0) {
-                    setTimeout(() => {
-                        seconds = seconds - 1
-                        setTimer(formatNumber(minutes) + ":" + formatNumber(seconds))
-                    }, 1000);
-                } else {
-                    setTimeout(() => {
-                        minutes = minutes - 1
-                        seconds = 60
-                        setTimer(formatNumber(minutes) + ":" + formatNumber(seconds))
-                    }, 1000);
-                }
-            }
+        if (isPlay === true) {
+            const splitTimer = time.split(":")
+            let minutes = transformInNumber(splitTimer[0])
+            let seconds = transformInNumber(splitTimer[1])
 
+            if (minutes !== 0) {
+                subtractionTimer(seconds, minutes)
+            }
         }
-    }, [play, timer])
+        if (time === "") {
+            setTime(config)
+        }
+    }, [time, isPlay])
+
+    const transformInNumber = (value: string) => {
+        return Number(value);
+    }
+
+    const transformInString = (value: number) => {
+        return value > 9 ? value : "0" + value;
+    }
+
+    const subtractionTimer = (seconds: number, minutes: number) => {
+        if (seconds > 0) {
+            seconds = seconds - 1;
+        } else {
+            minutes = minutes - 1;
+            seconds = 60;
+        }
+        setTimeout(() => {
+            const newTimeValue = (transformInString(minutes) + ":" + transformInString(seconds));
+            setTime(newTimeValue);
+        }, 1000);
+    }
+
+    const handlerStopTimer = () => {
+        setIsPlay(false);
+    }
+
+    const handlerPlayTimer = () => {
+        setIsPlay(true)
+    }
+
+    const handlerRestartTimer = () => {
+        setTimeout(() => {
+            setTime(config)
+        }, 300);
+    }
+
+    const changeTimeConfig = (time: Time) => {
+        handlerStopTimer()
+        setConfig(time)
+        
+        setTimeout(() => {
+            setTime(time)
+        }, 300);
+    }
+
 
 
     return (
         <div className={style.container}>
-            <div className={style.timer}>{timer}</div>
+            <div className={style.tabsTime}>
+                <button disabled={config === Time.Default} onClick={() => changeTimeConfig(Time.Default)}>Normal</button>
+                <button disabled={config === Time.LongTime} onClick={() => changeTimeConfig(Time.LongTime)}>Long Timer</button>
+                <button disabled={config === Time.SmallTime} onClick={() => changeTimeConfig(Time.SmallTime)}>Small Timer</button>
+            </div>
+            <div className={style.timer}>{time}</div>
             <div className={style.command}>
-                <button className={style.btnStop} onClick={() => setPlay(false)}>
+                <button disabled={isPlay === false} className={style.btnStop} onClick={handlerStopTimer}>
                     <i className="fa fa-stop" aria-hidden="true"></i>
                     STOP
                 </button>
-                <button className={style.btnPlay} onClick={() => setPlay(true)}>
+                <button disabled={isPlay === true} className={style.btnPlay} onClick={handlerPlayTimer}>
                     <i className="fa fa-play" aria-hidden="true"></i>
-                    START
+                    PLAY
                 </button>
-                <button className={style.btnRestart} onClick={() => setTimer("25:00")}>
+                <button className={style.btnRestart} onClick={() => handlerRestartTimer()}>
                     <i className="fa fa-fast-backward" aria-hidden="true"></i>
                     RESTART
                 </button>

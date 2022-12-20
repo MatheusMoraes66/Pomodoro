@@ -1,18 +1,53 @@
 .container {
     display: flex;
-    height: 200px;
-    gap: 5px;
-    flex-direction: column;
+    height: 300px;
+    /* gap: 11px; */
     flex-wrap: nowrap;
-    justify-content: center;
+    justify-content: space-evenly;
+    flex-direction: column;
     align-items: center;
+}
+
+.tabsTime {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.tabsTime button {
+    background-color: #537398;
+    display: flex;
+    font-size: 10px;
+    border-radius: 5px;
+    color: #fff;
+    width: 90px;
+    height: 25px;
+    border: none;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.tabsTime button:disabled{
+    background-color: #4a6687;
+    display: flex;
+        font-size: 10px;
+        border-radius: 5px;
+        color: #fff;
+        width: 90px;
+        height: 25px;
+        border: none;
+        align-items: center;
+        justify-content: space-evenly;
+}
+
+.tabsTime button:hover {
+    background-color: #5e80a7;
 }
 
 .timer {
     justify-content: center;
     display: flex;
     align-items: center;
-    height: 80px;
+    height: 70px;
     font-size: 100px;
     font-weight: bold;
     color: #fff;
@@ -35,6 +70,14 @@
     border: none;
     align-items: center;
     justify-content: space-evenly;
+}
+
+.command button:disabled,
+button[disabled] {
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
 }
 
 .btnStop {

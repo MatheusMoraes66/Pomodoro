@@ -14,7 +14,7 @@ const Home = () => {
             <div className={style.container}>
                 <section className={style.title}>
                     <h1>Pomodore</h1>
-                    <p>Digite o seu nome do usuario abaixo, para poder acessar o aplicativo.</p>
+                    <p>Digite o seu nome de usuario do GitHub, para poder acessar o aplicativo.</p>
                 </section>
                 <section className={style.search}>
                     <input type="text" value={name} onChange={(e) => setName(e.target.value)} />

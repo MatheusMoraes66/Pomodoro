@@ -24,7 +24,7 @@ export async function getUser(user: string): Promise<ResponseUser | undefined> {
     } catch (error) {
         if (axios.isAxiosError(error)) {
             resp = {
-                data: 'error message: ' + error.message,
+                data: 'Nome não encotrado.',
                 status: error.code
             }
             return resp;
