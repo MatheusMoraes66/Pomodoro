@@ -17,7 +17,7 @@
 .tabsTime button {
     background-color: #537398;
     display: flex;
-    font-size: 10px;
+    font-size: 11px;
     border-radius: 5px;
     color: #fff;
     width: 90px;
@@ -26,17 +26,18 @@
     align-items: center;
     justify-content: space-evenly;
 }
-.tabsTime button:disabled{
+
+.tabsTime button:disabled {
     background-color: #4a6687;
     display: flex;
-        font-size: 10px;
-        border-radius: 5px;
-        color: #fff;
-        width: 90px;
-        height: 25px;
-        border: none;
-        align-items: center;
-        justify-content: space-evenly;
+    font-size: 10px;
+    border-radius: 5px;
+    color: #fff;
+    width: 90px;
+    height: 25px;
+    border: none;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .tabsTime button:hover {
@@ -47,7 +48,7 @@
     justify-content: center;
     display: flex;
     align-items: center;
-    height: 70px;
+    height: 90px;
     font-size: 100px;
     font-weight: bold;
     color: #fff;
@@ -55,19 +56,20 @@
 
 .command {
     display: flex;
-    height: 80px;
     width: 100%;
     align-items: flex-end;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 .command button {
+    font-size: 12px;
     display: flex;
     border-radius: 5px;
     color: #fff;
-    width: 100px;
-    height: 30px;
+    width: 90px;
+    height: 25px;
     border: none;
+    font-weight: bold;
     align-items: center;
     justify-content: space-evenly;
 }
