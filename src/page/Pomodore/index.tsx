@@ -31,7 +31,7 @@ function Pomodore() {
                         <i className="fa fa-reply"></i>
                     </Link>
                    
-                    <a className={style.userlink} href={selectUser?.html_url}>
+                    <a target="_blank" className={style.userlink} href={selectUser?.html_url}>
                         <i className="fa fa-link"></i>
                     </a>
                     <div className={style.avatar}>

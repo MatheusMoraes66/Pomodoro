@@ -65,7 +65,7 @@ function Timer() {
     const changeTimeConfig = (time: Time) => {
         handlerStopTimer()
         setConfig(time)
-        
+
         setTimeout(() => {
             setTime(time)
         }, 300);
@@ -76,9 +76,9 @@ function Timer() {
     return (
         <div className={style.container}>
             <div className={style.tabsTime}>
-                <button disabled={config === Time.Default} onClick={() => changeTimeConfig(Time.Default)}>Normal</button>
-                <button disabled={config === Time.LongTime} onClick={() => changeTimeConfig(Time.LongTime)}>Long Timer</button>
-                <button disabled={config === Time.SmallTime} onClick={() => changeTimeConfig(Time.SmallTime)}>Small Timer</button>
+                <button disabled={config === Time.Default || isPlay === true} onClick={() => changeTimeConfig(Time.Default)}>Normal</button>
+                <button disabled={config === Time.LongTime || isPlay === true} onClick={() => changeTimeConfig(Time.LongTime)}>Long Timer</button>
+                <button disabled={config === Time.SmallTime || isPlay === true} onClick={() => changeTimeConfig(Time.SmallTime)}>Small Timer</button>
             </div>
             <div className={style.timer}>{time}</div>
             <div className={style.command}>

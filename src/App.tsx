@@ -4,8 +4,6 @@ import UserProvider from './contexts/userContext'
 import MessageProvider from './contexts/useMessage'
 import Pomodore from "./page/Pomodore";
 
-
-
 function App() {
   return (
     <div className='App'>
